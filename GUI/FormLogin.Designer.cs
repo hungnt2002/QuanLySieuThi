@@ -30,8 +30,8 @@
         {
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.TextBoxMatKhau = new System.Windows.Forms.TextBox();
+            this.txtBoxTaiKhoan = new System.Windows.Forms.TextBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -49,21 +49,22 @@
             this.label5.TabIndex = 18;
             this.label5.Text = "Hoàn tác";
             // 
-            // textBox2
+            // TextBoxMatKhau
             // 
-            this.textBox2.Location = new System.Drawing.Point(307, 261);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(239, 32);
-            this.textBox2.TabIndex = 17;
+            this.TextBoxMatKhau.Location = new System.Drawing.Point(307, 261);
+            this.TextBoxMatKhau.Multiline = true;
+            this.TextBoxMatKhau.Name = "TextBoxMatKhau";
+            this.TextBoxMatKhau.Size = new System.Drawing.Size(239, 32);
+            this.TextBoxMatKhau.TabIndex = 17;
             // 
-            // textBox1
+            // txtBoxTaiKhoan
             // 
-            this.textBox1.Location = new System.Drawing.Point(307, 200);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(239, 33);
-            this.textBox1.TabIndex = 16;
+            this.txtBoxTaiKhoan.Location = new System.Drawing.Point(307, 200);
+            this.txtBoxTaiKhoan.Multiline = true;
+            this.txtBoxTaiKhoan.Name = "txtBoxTaiKhoan";
+            this.txtBoxTaiKhoan.Size = new System.Drawing.Size(239, 33);
+            this.txtBoxTaiKhoan.TabIndex = 16;
+
             // 
             // comboBox1
             // 
@@ -116,21 +117,22 @@
             this.button2.TabIndex = 11;
             this.button2.Text = "Đăng nhập";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // Login
+            // FormLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(817, 466);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.TextBoxMatKhau);
+            this.Controls.Add(this.txtBoxTaiKhoan);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button2);
-            this.Name = "Login";
+            this.Name = "FormLogin";
             this.Text = "Form1";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -141,8 +143,8 @@
 
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox TextBoxMatKhau;
+        private System.Windows.Forms.TextBox txtBoxTaiKhoan;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;

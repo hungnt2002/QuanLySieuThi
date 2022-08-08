@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BLL;
 
 namespace GUI
 {
@@ -15,6 +16,13 @@ namespace GUI
         public FormBanHang()
         {
             InitializeComponent();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            
+            DataTable dt = TestAccountDAL.getAll();
+            MessageBox.Show(dt.Rows[0][1].ToString());
         }
     }
 }

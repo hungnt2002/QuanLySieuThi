@@ -8,9 +8,12 @@ namespace DAL
 {
     public class Connection
     {
-        private string sql = ""
         public static SqlConnection getConnection()
         {
+       
+             string strConnection = @"Data Source=ASUS-TUF;Initial Catalog=QuanLySieuThi;User ID=sa;Password=123";
+             return new SqlConnection(strConnection);
+
         }
     }
 }
