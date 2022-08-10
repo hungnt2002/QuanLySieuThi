@@ -68,9 +68,10 @@
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.button2);
             this.groupBox1.Controls.Add(this.button3);
-            this.groupBox1.Location = new System.Drawing.Point(25, 34);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(179, 563);
+            this.groupBox1.Size = new System.Drawing.Size(179, 622);
             this.groupBox1.TabIndex = 67;
             this.groupBox1.TabStop = false;
             // 
@@ -93,6 +94,7 @@
             this.button2.TabIndex = 16;
             this.button2.Text = "Nhân viên";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
@@ -139,6 +141,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(688, 333);
             this.dataGridView1.TabIndex = 66;
             // 
@@ -334,6 +337,7 @@
             this.button5.TabIndex = 45;
             this.button5.Text = "Thêm";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button4
             // 
@@ -383,6 +387,7 @@
             this.Controls.Add(this.button4);
             this.Controls.Add(this.textBox7);
             this.Name = "FormQLSanPham";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form2";
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

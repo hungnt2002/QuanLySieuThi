@@ -1,6 +1,6 @@
 ﻿namespace GUI
 {
-    partial class Form1
+    partial class FormQLNhanVien
     {
         /// <summary>
         /// Required designer variable.
@@ -61,9 +61,10 @@
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.button2);
             this.groupBox1.Controls.Add(this.button3);
-            this.groupBox1.Location = new System.Drawing.Point(13, 3);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(202, 617);
+            this.groupBox1.Size = new System.Drawing.Size(202, 622);
             this.groupBox1.TabIndex = 84;
             this.groupBox1.TabStop = false;
             // 
@@ -282,7 +283,7 @@
             this.button4.Text = "Sửa";
             this.button4.UseVisualStyleBackColor = true;
             // 
-            // Form1
+            // FormQLNhanVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -304,8 +305,10 @@
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
-            this.Name = "Form1";
+            this.Name = "FormQLNhanVien";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.FormQLNhanVien_Load);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);

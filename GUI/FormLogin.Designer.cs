@@ -32,7 +32,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.TextBoxMatKhau = new System.Windows.Forms.TextBox();
             this.txtBoxTaiKhoan = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -48,41 +47,30 @@
             this.label5.Size = new System.Drawing.Size(115, 29);
             this.label5.TabIndex = 18;
             this.label5.Text = "Hoàn tác";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // TextBoxMatKhau
             // 
-            this.TextBoxMatKhau.Location = new System.Drawing.Point(307, 261);
+            this.TextBoxMatKhau.Location = new System.Drawing.Point(308, 242);
             this.TextBoxMatKhau.Multiline = true;
             this.TextBoxMatKhau.Name = "TextBoxMatKhau";
+            this.TextBoxMatKhau.PasswordChar = '*';
             this.TextBoxMatKhau.Size = new System.Drawing.Size(239, 32);
             this.TextBoxMatKhau.TabIndex = 17;
             // 
             // txtBoxTaiKhoan
             // 
-            this.txtBoxTaiKhoan.Location = new System.Drawing.Point(307, 200);
+            this.txtBoxTaiKhoan.Location = new System.Drawing.Point(308, 181);
             this.txtBoxTaiKhoan.Multiline = true;
             this.txtBoxTaiKhoan.Name = "txtBoxTaiKhoan";
             this.txtBoxTaiKhoan.Size = new System.Drawing.Size(239, 33);
             this.txtBoxTaiKhoan.TabIndex = 16;
-
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Adminstrator",
-            "Nhân viên"});
-            this.comboBox1.Location = new System.Drawing.Point(307, 135);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(239, 24);
-            this.comboBox1.TabIndex = 15;
-            this.comboBox1.Text = "Ai đang đăng nhập ?";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label4.Location = new System.Drawing.Point(150, 264);
+            this.label4.Location = new System.Drawing.Point(151, 245);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(117, 29);
             this.label4.TabIndex = 14;
@@ -92,7 +80,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label3.Location = new System.Drawing.Point(150, 200);
+            this.label3.Location = new System.Drawing.Point(151, 181);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(128, 29);
             this.label3.TabIndex = 13;
@@ -110,6 +98,7 @@
             // 
             // button2
             // 
+            this.button2.DialogResult = System.Windows.Forms.DialogResult.No;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.button2.Location = new System.Drawing.Point(353, 327);
             this.button2.Name = "button2";
@@ -127,13 +116,14 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.TextBoxMatKhau);
             this.Controls.Add(this.txtBoxTaiKhoan);
-            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button2);
             this.Name = "FormLogin";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.FormLogin_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -145,7 +135,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox TextBoxMatKhau;
         private System.Windows.Forms.TextBox txtBoxTaiKhoan;
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;

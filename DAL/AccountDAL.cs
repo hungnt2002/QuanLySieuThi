@@ -6,36 +6,30 @@ using System.Text;
 using System.Threading.Tasks;
 using DTO;
 using System.Data.SqlClient;
-using System.Data;
 
 namespace DAL
 {
     public class AccountDAL
     {
-        string query;
         SqlConnection conn = null;
-        SqlCommand cmd;
         SqlDataAdapter adapter;
+        SqlCommand cmd;
 
-        public bool Insert(Account t)
+        public bool Command(Account account, string query)
         {
-            
-            //throw new NotImplementedException();
             conn = Connection.getConnection();
-            query = "insert into tblAccount values (@username, @password, @typeUser)";
 
             try
             {
                 conn.Open();
                 cmd = new SqlCommand(query, conn);
-                cmd.Parameters.Add("@username", SqlDbType.NVarChar).Value = t.Username;
-                cmd.Parameters.Add("@password", SqlDbType.NVarChar).Value = t.Password;
-                cmd.Parameters.Add("@typeUser", SqlDbType.NVarChar).Value = t.TypeUser;
+                cmd.Parameters.Add("@username", SqlDbType.NVarChar).Value = account.Username;
+                cmd.Parameters.Add("@password", SqlDbType.NVarChar).Value = account.Password;
+                cmd.Parameters.Add("@typeUser", SqlDbType.NVarChar).Value = account.TypeUser;
                 cmd.ExecuteNonQuery();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                //ex.ToString();
                 return false;
             }
             finally
@@ -46,10 +40,11 @@ namespace DAL
             return true;
         }
 
-        public DataTable SelectAll()
+        
+        public DataTable Select(string query)
         {
-            conn = Connection.getConnection ();
-            query = "Select * from tblAccount";
+            conn = Connection.getConnection();
+            
 
             conn.Open();
             DataTable dt = new DataTable();
@@ -61,6 +56,6 @@ namespace DAL
             return dt;
         }
 
-  
+
     }
 }

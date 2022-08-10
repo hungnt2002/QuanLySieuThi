@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient;
 using BLL;
 using DTO;
 namespace GUI
@@ -21,16 +20,42 @@ namespace GUI
 
         private void button2_Click(object sender, EventArgs e)
         {
+
+
             LoginBLL login = new LoginBLL();
-            bool check = login.checkAccount(txtBoxTaiKhoan.Text, TextBoxMatKhau.Text);
-            if(check == true)
+            string checkUser = login.checkAccount(txtBoxTaiKhoan.Text, TextBoxMatKhau.Text);
+            if(checkUser == "Admin")
             {
-                MessageBox.Show("Đăng nhập thành công", "Thông báo");
+                
+                MessageBox.Show("Đăng nhập tài khoản " + txtBoxTaiKhoan.Text + " thành công", "Thông báo", MessageBoxButtons.OK);
+                this.Hide();
+                FormQLSanPham formQLSanPham = new FormQLSanPham();
+                formQLSanPham.ShowDialog();
+        
+            }
+            else if(checkUser == "User")
+            {
+                MessageBox.Show("Đăng nhập tài khoản " + txtBoxTaiKhoan.Text + " thành công", "Thông báo", MessageBoxButtons.OK);
+                this.Hide();
+                FormBanHang formBanHang = new FormBanHang(txtBoxTaiKhoan.Text);
+                formBanHang.ShowDialog();
+                this.Show();
             }
             else
             {
-                MessageBox.Show("Đăng nhập thất bại", "Thông báo");
+                MessageBox.Show("Tài khoản hoặc mật khẩu không đúng", "Thông báo");
             }
+        }
+
+        private void FormLogin_Load(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+            txtBoxTaiKhoan.Clear();
+            TextBoxMatKhau.Clear();
         }
 
         

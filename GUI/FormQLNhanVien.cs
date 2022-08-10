@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace GUI
 {
-    public partial class Form1 : Form
+    public partial class FormQLNhanVien : Form
     {
-        public Form1()
+        public FormQLNhanVien()
         {
             InitializeComponent();
+        }
+
+        private void FormQLNhanVien_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
