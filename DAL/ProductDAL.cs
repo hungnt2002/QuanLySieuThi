@@ -28,8 +28,12 @@ namespace DAL
                 cmd.Parameters.Add("@nhaSanXuat", SqlDbType.NVarChar).Value = product.NhaSanXuat;
                 int result = cmd.ExecuteNonQuery();
 
-                if(result == 0) 
+                if(result == 0)
+                {
                     return false;
+
+                }
+
                 
             }
             catch (Exception ex)

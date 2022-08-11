@@ -29,9 +29,10 @@ namespace GUI
                 
                 MessageBox.Show("Đăng nhập tài khoản " + txtBoxTaiKhoan.Text + " thành công", "Thông báo", MessageBoxButtons.OK);
                 this.Hide();
-                FormQLSanPham formQLSanPham = new FormQLSanPham();
-                formQLSanPham.ShowDialog();
-        
+                FormAdmin formAdmin = new FormAdmin();
+                formAdmin.ShowDialog();
+                this.Show();
+
             }
             else if(checkUser == "User")
             {
@@ -60,9 +61,7 @@ namespace GUI
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            FormDangKy formDangKy = new FormDangKy();
-            formDangKy.Show();
+          
             
         }
 

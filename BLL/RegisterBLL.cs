@@ -14,9 +14,9 @@ namespace BLL
         AccountDAL accountDAL;
         public bool checkAccount(string username, string password)
         {
-            accountDAL = new AccountDAL();
+            QuerySelect querySelect = new QuerySelect();
             string query = "SELECT * FROM tblAccount";
-            DataTable dataTable = accountDAL.Select(query);
+            DataTable dataTable = querySelect.Select(query);
             for (int i = 0; i < dataTable.Rows.Count; i++)
             {
 
@@ -41,6 +41,21 @@ namespace BLL
 
             return true;
 
+        }
+
+        public bool updateAccount(string username, string password)
+        {
+            Account account = new Account(username, password, "User");
+            string query = "UPDATE tblAccount" +
+                " SET username = @username, password = @password" +
+                " WHERE username = @username";
+            AccountDAL accountDAL = new AccountDAL();
+            if (accountDAL.Command(account, query))
+            {
+                return true;
+            }
+
+            return false;
         }
     }
 }

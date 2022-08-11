@@ -102,6 +102,7 @@ namespace GUI
 
         private void button4_Click(object sender, EventArgs e)
         {
+
             bool check;
             ProductBLL productBLL = new ProductBLL();
             try
@@ -139,11 +140,42 @@ namespace GUI
             else
             {
                 ProductBLL productBLL = new ProductBLL();
-                dataGridView1.DataSource = productBLL.selectCondition(name);
+                dataGridView1.DataSource = productBLL.selectTenSanPhamTheoLoai(name, comboBox1.Text);
             }
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ProductBLL productBLL = new ProductBLL();
+            dataGridView1.DataSource = productBLL.selectLoai(comboBox1.Text);
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            FormQLSanPham_Load(sender, e);
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            textBox1.Text = "";
+            textBox2.Text = "";
+            textBox3.Text = "";
+            textBox4.Text = "";
+            comboBox2.Text= "";
+            textBox5.Text = "";
+        }
+
+        private void label3_Click(object sender, EventArgs e)
         {
 
         }

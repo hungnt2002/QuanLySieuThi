@@ -58,10 +58,29 @@ namespace BLL
 
         }
 
-        public DataTable selectCondition(string tenSanPham)
+        public DataTable selectTenSanPhamTheoLoai(string tenSanPham,String loai)
         {
+            string query;
             QuerySelect querySelect = new QuerySelect();
-            string query = "SELECT * FROM tblProduct WHERE tenSanPham like N'"+tenSanPham+"'";
+            if (loai == "Tất cả")
+            {
+                 query = "SELECT * FROM tblProduct WHERE tenSanPham like N'%" + tenSanPham + "%'";
+            }
+            else
+            {
+
+                query = "SELECT * FROM tblProduct WHERE tenSanPham like N'%"+tenSanPham+"%' AND phanLoai like N'%"+loai+"%'";
+            }
+            DataTable dataTable = querySelect.Select(query);
+            return dataTable;
+
+        }
+
+        public DataTable selectLoai(string loai)
+        {
+
+            QuerySelect querySelect = new QuerySelect();
+            string query = "SELECT * FROM tblProduct WHERE phanLoai = N'" + loai + "'";
             DataTable dataTable = querySelect.Select(query);
             return dataTable;
 

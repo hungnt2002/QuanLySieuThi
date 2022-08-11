@@ -11,11 +11,11 @@ namespace BLL
 {
     public class TestAccountDAL
     {
-        
+
 
         public static bool insert()
         {
-            Account account = new Account("0007","1000","User");
+            Account account = new Account("0007", "1000", "User");
             AccountDAL accountDAL = new AccountDAL();
             string query = "insert into tblAccount values(@username, @password, @typeUser)";
             //string query = "Delete From tblAccount Where username = @username";
@@ -25,10 +25,5 @@ namespace BLL
             return check;
         }
 
-        public static DataTable getAll()
-        {
-            AccountDAL accountDAL = new AccountDAL();
-            return accountDAL.Select("Select * from tblAccount");
-        }
-    }
+    } 
 }
