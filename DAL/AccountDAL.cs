@@ -11,9 +11,9 @@ namespace DAL
 {
     public class AccountDAL
     {
-        SqlConnection conn = null;
-        SqlDataAdapter adapter;
-        SqlCommand cmd;
+        private SqlConnection conn = null;
+        private SqlDataAdapter adapter;
+        private SqlCommand cmd;
 
         public bool Command(Account account, string query)
         {
@@ -26,11 +26,15 @@ namespace DAL
                 cmd.Parameters.Add("@username", SqlDbType.NVarChar).Value = account.Username;
                 cmd.Parameters.Add("@password", SqlDbType.NVarChar).Value = account.Password;
                 cmd.Parameters.Add("@typeUser", SqlDbType.NVarChar).Value = account.TypeUser;
-                cmd.ExecuteNonQuery();
+                int result = cmd.ExecuteNonQuery();
+                if(result == 0)
+                {
+                    return false;
+                }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return false;
+                throw ex;
             }
             finally
             {

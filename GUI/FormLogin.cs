@@ -58,6 +58,17 @@ namespace GUI
             TextBoxMatKhau.Clear();
         }
 
-        
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FormDangKy formDangKy = new FormDangKy();
+            formDangKy.Show();
+            
+        }
+
+        private void FormLogin_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            System.Windows.Forms.Application.Exit();
+        }
     }
 }

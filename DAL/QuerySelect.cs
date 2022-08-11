@@ -13,9 +13,8 @@ namespace DAL
     public class QuerySelect
     {
 
-        SqlConnection conn = null;
-        SqlCommand cmd;
-        SqlDataAdapter adapter;
+        private SqlConnection conn = null;
+        private SqlDataAdapter adapter;
         public DataTable Select(string query)
         {
             conn = Connection.getConnection();

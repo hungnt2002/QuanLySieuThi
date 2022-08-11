@@ -9,10 +9,10 @@ using System.Data.SqlClient;
 
 namespace DAL
 {
-    internal class ProductDAL
+    public class ProductDAL
     {
-        SqlConnection conn = null;
-        SqlCommand cmd;
+        private SqlConnection conn = null;
+        private SqlCommand cmd;
         public bool Command(Product product, string query)
         {
             conn = Connection.getConnection();
@@ -26,12 +26,15 @@ namespace DAL
                 cmd.Parameters.Add("@gia", SqlDbType.Int).Value = product.Gia;
                 cmd.Parameters.Add("@phanLoai", SqlDbType.NVarChar).Value = product.PhanLoai;
                 cmd.Parameters.Add("@nhaSanXuat", SqlDbType.NVarChar).Value = product.NhaSanXuat;
+                int result = cmd.ExecuteNonQuery();
 
-                cmd.ExecuteNonQuery();
+                if(result == 0) 
+                    return false;
+                
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return false;
+                throw ex;
             }
             finally
             {
@@ -40,6 +43,7 @@ namespace DAL
 
             return true;
         }
+
 
 
         

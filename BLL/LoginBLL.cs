@@ -13,7 +13,7 @@ namespace BLL
         public string checkAccount(string username, string password)
         {
             QuerySelect querySelect = new QuerySelect();
-            string query = "select * from tblAccount";
+            string query = "SELECT * FROM tblAccount";
             DataTable dataTable = querySelect.Select(query);
             for(int i = 0; i < dataTable.Rows.Count; i++)
             {
