@@ -12,16 +12,16 @@ namespace BLL
 {
     public class StaffBLL
     {
-        public bool insert(string id, string tenNV, string tuoi, string sodt, string username, string password)
+        public bool insert(string id, string tenNhanVien, string tuoi, string sodt, string username, string password)
         {
 
             RegisterBLL registerBLL = new RegisterBLL();
-            if (!registerBLL.regiterAccount(tenNV, password))
+            if (!registerBLL.regiterAccount(username, password))
             {
                 return false;
             }
-            Staff staff = new Staff(id, tenNV, tuoi, sodt);
-            string query = "INSERT INTO tblStaff VALUES(@tenNV, @tuoi, @SDT)";
+            Staff staff = new Staff(id, tenNhanVien, tuoi, sodt);
+            string query = "INSERT INTO tblStaff VALUES(@tenNhanVien, @tuoi, @SDT)";
             StaffDAL staffDAL = new StaffDAL();
             staffDAL.Command(staff, query);
 
@@ -29,12 +29,12 @@ namespace BLL
             return true;
         }
 
-        public bool update(string id, string tenNV, string tuoi, string sodt, string username, string password)
+        public bool update(string id, string tenNhanVien, string tuoi, string sodt, string username, string password)
         {
-            Staff staff = new Staff(id, tenNV, tuoi, sodt);
+            Staff staff = new Staff(id, tenNhanVien, tuoi, sodt);
             string query = "UPDATE tblStaff" +
-                " SET tenNV = @tenNV, tuoi = @tuoi, SDT = @SDT" +
-                " WHERE idNV = @idNV";
+                " SET tenNhanVien = @tenNhanVien, tuoi = @tuoi, SDT = @SDT" +
+                " WHERE id = @id";
             StaffDAL staffDAL = new StaffDAL();
             if (staffDAL.Command(staff, query))
             {
@@ -48,21 +48,14 @@ namespace BLL
 
         public bool delete(string id, string username)
         {
-            Account account = new Account(username, "", "");
-            Staff staff = new Staff("id", "", "", "");
+           
             string query = "DELETE FROM tblAccount WHERE username = @username";
+            Account account = new Account(username, "", "");
             AccountDAL accountDAL = new AccountDAL();
-            if (!accountDAL.Command(account, query))
+            if(!accountDAL.Command(account, query))
             {
                 return false;
-            }
-
-            query = "DELETE FROM tblStaff WHERE id = @id";
-            StaffDAL staffDAL = new StaffDAL();
-            if (!staffDAL.Command(staff, query))
-            {
-                return false;
-            }
+            };
 
             return true;
         }
@@ -70,10 +63,9 @@ namespace BLL
         public DataTable loadAll()
         {
             QuerySelect querySelect = new QuerySelect();
-            string query = "SELECT * FROM tblStaff";
+            string query = "SELECT tblStaff.*, tblAccount.password FROM tblStaff, tblAccount WHERE tblStaff.username = tblAccount.username";
             DataTable dataTable = querySelect.Select(query);
             return dataTable;
-
         }
 
         public DataTable selectCondition(string tenNV)

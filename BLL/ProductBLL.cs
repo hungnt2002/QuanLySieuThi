@@ -86,5 +86,17 @@ namespace BLL
 
         }
 
+
+        public int tinhTienOder(DataTable dt)
+        {
+            int tongTienOrder = 0;
+
+            foreach (DataRow dataRow in dt.Rows)
+            {
+                tongTienOrder += int.Parse(dataRow[4].ToString());
+            }
+            return tongTienOrder;
+        }
+
     }
 }

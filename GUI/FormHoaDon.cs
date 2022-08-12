@@ -15,9 +15,8 @@ namespace GUI
         String tongtien;
         public FormHoaDon(string tongtien, DataGridView dataGridView)
         {
-            this.tenKH = tenKH;
+
             InitializeComponent();
-            this.ngay = ngay;
             this.tongtien = tongtien;
             this.dataGridView1.DataSource = dataGridView.DataSource;
 
@@ -26,8 +25,6 @@ namespace GUI
         private void FormHoaDon_Load(object sender, EventArgs e)
         {
             label2.Text = "Tổng tiền: " + tongtien;
-            label3.Text = "Tên khách hàng: " + tenKH;
-            label4.Text = "Ngày: " + ngay;
 
         }
     }

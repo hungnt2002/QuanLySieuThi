@@ -115,15 +115,22 @@ namespace GUI
             int tongSL;
             int tongTien;
 
+            if(textBox4.Text == ""||textBox5.Text == "")
+            {
+                return;
+            }
             foreach (DataRow dataRow in dt.Rows)
             {
+                
                 if (textBox4.Text == dataRow[1].ToString())
                 {
                     tongSL = int.Parse(textBox6.Text) + int.Parse(dataRow[3].ToString());
                     dataRow[3] = tongSL.ToString();
                     tongTien = int.Parse(dataRow[2].ToString()) * int.Parse(dataRow[3].ToString());
                     dataRow[4] = tongTien.ToString();
-                    this.tinhTienOder();
+                    tongTienOrder =      productBLL.tinhTienOder(dt);
+                    
+                    label11.Text = tongTienOrder.ToString();
                     return;
                 }
             }
@@ -142,7 +149,10 @@ namespace GUI
 
             dt.Rows.Add(row);
 
-            this.tinhTienOder();
+
+
+            tongTienOrder = productBLL.tinhTienOder(dt);
+            label11.Text = tongTienOrder.ToString();
         }
         private void tinhTienOder()
         {
@@ -154,6 +164,7 @@ namespace GUI
             }
             label11.Text = tongTienOrder.ToString();
         }
+
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -186,6 +197,26 @@ namespace GUI
             {
                 ProductBLL productBLL = new ProductBLL();
                 dataGridView2.DataSource = productBLL.selectTenSanPhamTheoLoai(name, comboBox1.Text);
+            }
+        }
+
+
+
+        private void dataGridView1_CellClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            for (int i = 0; i < dataGridView1.Rows.Count; i++)
+            {
+                if (dataGridView1.Rows[i].Selected)
+                {
+                    if (dt.Rows.Count < 1)
+                    {
+                        return;
+                    }
+                    tongTienOrder -= int.Parse(dt.Rows[i][4].ToString());
+                    label11.Text = tongTienOrder.ToString();
+                    dataGridView1.Rows.RemoveAt(i);
+                }
+
             }
         }
     }

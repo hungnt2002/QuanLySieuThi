@@ -12,7 +12,6 @@ namespace DAL
     public class AccountDAL
     {
         private SqlConnection conn = null;
-        private SqlDataAdapter adapter;
         private SqlCommand cmd;
 
         public bool Command(Account account, string query)

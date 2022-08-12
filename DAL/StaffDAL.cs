@@ -21,8 +21,8 @@ namespace DAL
             {
                 conn.Open();
                 cmd = new SqlCommand(query, conn);
-                cmd.Parameters.Add("@idNV", SqlDbType.NVarChar).Value = staff.Id;
-                cmd.Parameters.Add("@tenNV", SqlDbType.NVarChar).Value = staff.TenNV;
+                cmd.Parameters.Add("@id", SqlDbType.NVarChar).Value = staff.Id;
+                cmd.Parameters.Add("@tenNhanVien", SqlDbType.NVarChar).Value = staff.TenNhanVien;
                 cmd.Parameters.Add("@tuoi", SqlDbType.NVarChar).Value = staff.Tuoi;
                 cmd.Parameters.Add("@SDT", SqlDbType.NVarChar).Value = staff.Sodt;
                 

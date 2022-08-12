@@ -33,7 +33,7 @@ namespace BLL
         {
 
             Account account = new Account(username, password, "User");
-            AccountDAL accountDAL = new AccountDAL();
+            accountDAL = new AccountDAL();
             string query = "insert into tblAccount values(@username, @password, @typeUser)";
 
             accountDAL.Command(account, query);
@@ -49,7 +49,7 @@ namespace BLL
             string query = "UPDATE tblAccount" +
                 " SET username = @username, password = @password" +
                 " WHERE username = @username";
-            AccountDAL accountDAL = new AccountDAL();
+            accountDAL = new AccountDAL();
             if (accountDAL.Command(account, query))
             {
                 return true;

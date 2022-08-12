@@ -49,7 +49,7 @@
             this.panel_Body.Location = new System.Drawing.Point(236, 107);
             this.panel_Body.Margin = new System.Windows.Forms.Padding(4);
             this.panel_Body.Name = "panel_Body";
-            this.panel_Body.Size = new System.Drawing.Size(864, 452);
+            this.panel_Body.Size = new System.Drawing.Size(1246, 546);
             this.panel_Body.TabIndex = 5;
             // 
             // panel_Top
@@ -60,7 +60,7 @@
             this.panel_Top.Location = new System.Drawing.Point(236, 0);
             this.panel_Top.Margin = new System.Windows.Forms.Padding(4);
             this.panel_Top.Name = "panel_Top";
-            this.panel_Top.Size = new System.Drawing.Size(864, 107);
+            this.panel_Top.Size = new System.Drawing.Size(1246, 107);
             this.panel_Top.TabIndex = 4;
             // 
             // label1
@@ -86,7 +86,7 @@
             this.panel_Left.Location = new System.Drawing.Point(0, 0);
             this.panel_Left.Margin = new System.Windows.Forms.Padding(4);
             this.panel_Left.Name = "panel_Left";
-            this.panel_Left.Size = new System.Drawing.Size(236, 559);
+            this.panel_Left.Size = new System.Drawing.Size(236, 653);
             this.panel_Left.TabIndex = 3;
             // 
             // button3
@@ -146,12 +146,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1100, 559);
+            this.ClientSize = new System.Drawing.Size(1482, 653);
             this.Controls.Add(this.panel_Body);
             this.Controls.Add(this.panel_Top);
             this.Controls.Add(this.panel_Left);
             this.Name = "FormAdmin";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormAdmin";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.panel_Top.ResumeLayout(false);
             this.panel_Top.PerformLayout();
             this.panel_Left.ResumeLayout(false);
