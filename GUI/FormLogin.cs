@@ -13,14 +13,33 @@ namespace GUI
 {
     public partial class FormLogin : Form
     {
+        bool isExit = true;
         public FormLogin()
         {
             InitializeComponent();
         }
 
+
+        public bool checkInput()
+        {
+            if (txtBoxTaiKhoan.Text == "")
+            {
+                MessageBox.Show("Bạn chưa nhập tài khoản");
+                return false;
+            }
+            else if(TextBoxMatKhau.Text == "")
+            {
+                MessageBox.Show("Bạn chưa nhập mật khẩu");
+                return false;
+            }
+            return true;
+        }
         private void button2_Click(object sender, EventArgs e)
         {
-
+            if (!checkInput())
+            {
+                return;
+            }
 
             LoginBLL login = new LoginBLL();
             string checkUser = login.checkAccount(txtBoxTaiKhoan.Text, TextBoxMatKhau.Text);
@@ -30,8 +49,9 @@ namespace GUI
                 MessageBox.Show("Đăng nhập tài khoản " + txtBoxTaiKhoan.Text + " thành công", "Thông báo", MessageBoxButtons.OK);
                 this.Hide();
                 FormAdmin formAdmin = new FormAdmin();
-                formAdmin.ShowDialog();
-                this.Show();
+                formAdmin.Show();
+                isExit = false;
+                this.Close();
 
             }
             else if(checkUser == "User")
@@ -39,8 +59,10 @@ namespace GUI
                 MessageBox.Show("Đăng nhập tài khoản " + txtBoxTaiKhoan.Text + " thành công", "Thông báo", MessageBoxButtons.OK);
                 this.Hide();
                 FormBanHang formBanHang = new FormBanHang(txtBoxTaiKhoan.Text);
-                formBanHang.ShowDialog();
-                this.Show();
+                formBanHang.Show();
+                isExit = false;
+                this.Close();
+                
             }
             else
             {
@@ -67,7 +89,8 @@ namespace GUI
 
         private void FormLogin_FormClosing(object sender, FormClosingEventArgs e)
         {
-            System.Windows.Forms.Application.Exit();
+            if(isExit == true)
+                Application.Exit();
         }
     }
 }

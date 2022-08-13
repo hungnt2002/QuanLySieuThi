@@ -156,12 +156,19 @@ namespace GUI
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+
+            if(comboBox1.Text == "Tất cả")
+            {
+                FormQLSanPham_Load(sender, e);
+                return;
+            }
             ProductBLL productBLL = new ProductBLL();
             dataGridView1.DataSource = productBLL.selectLoai(comboBox1.Text);
         }
 
         private void button8_Click(object sender, EventArgs e)
         {
+            comboBox1.Text = "Tất cả";
             FormQLSanPham_Load(sender, e);
         }
 
@@ -173,11 +180,6 @@ namespace GUI
             textBox4.Text = "";
             comboBox2.Text= "";
             textBox5.Text = "";
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

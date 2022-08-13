@@ -135,6 +135,7 @@
             // 
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
+            "Tất cả",
             "Thức uống",
             "Thực phẩm khô",
             "Bánh kẹo"});
@@ -142,6 +143,7 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(183, 24);
             this.comboBox1.TabIndex = 86;
+            this.comboBox1.Text = "Tất cả";
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // label9
@@ -260,7 +262,6 @@
             this.label3.Size = new System.Drawing.Size(182, 22);
             this.label3.TabIndex = 73;
             this.label3.Text = "Tìm kiếm sản phẩm";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label1
             // 
@@ -296,13 +297,19 @@
             // 
             // button4
             // 
+            this.button4.BackColor = System.Drawing.Color.Transparent;
+            this.button4.BackgroundImage = global::GUI.Properties.Resources.iconred1;
+            this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button4.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.button4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.WhiteSmoke;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.button4.Location = new System.Drawing.Point(225, 544);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(101, 53);
+            this.button4.Size = new System.Drawing.Size(109, 53);
             this.button4.TabIndex = 68;
             this.button4.Text = "Sửa";
-            this.button4.UseVisualStyleBackColor = true;
+            this.button4.UseVisualStyleBackColor = false;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // textBox7

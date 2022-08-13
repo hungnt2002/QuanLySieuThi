@@ -46,10 +46,10 @@ namespace GUI
 
         private void button5_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            FormLogin formLogin = new FormLogin();
-            formLogin.ShowDialog();
             this.Close();
+            FormLogin formLogin = new FormLogin();
+            formLogin.Show();
+            
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -218,6 +218,11 @@ namespace GUI
                 }
 
             }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            productBLL.ExportFile(dt,"sheett1","Hóa đơn mua hàng");
         }
     }
 

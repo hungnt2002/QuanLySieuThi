@@ -216,6 +216,9 @@
             // 
             this.button4.BackColor = System.Drawing.Color.Transparent;
             this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button4.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.button4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.button4.Location = new System.Drawing.Point(198, 547);
             this.button4.Name = "button4";
@@ -229,7 +232,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1482, 653);
+            this.ClientSize = new System.Drawing.Size(1471, 653);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.textBox6);
             this.Controls.Add(this.textBox4);

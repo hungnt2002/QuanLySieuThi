@@ -60,10 +60,9 @@ namespace GUI
 
         private void button3_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
             FormLogin formLogin = new FormLogin();
             formLogin.Show();
-            this.Close();
         }
     }
 }
