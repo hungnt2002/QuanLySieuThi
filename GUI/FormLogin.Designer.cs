@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.label5 = new System.Windows.Forms.Label();
             this.TextBoxMatKhau = new System.Windows.Forms.TextBox();
             this.txtBoxTaiKhoan = new System.Windows.Forms.TextBox();
@@ -131,8 +130,6 @@
         }
 
         #endregion
-
-        private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox TextBoxMatKhau;
         private System.Windows.Forms.TextBox txtBoxTaiKhoan;

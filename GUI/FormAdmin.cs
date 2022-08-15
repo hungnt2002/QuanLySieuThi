@@ -64,5 +64,10 @@ namespace GUI
             FormLogin formLogin = new FormLogin();
             formLogin.Show();
         }
+
+        private void FormAdmin_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

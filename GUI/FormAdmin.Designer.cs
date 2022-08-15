@@ -154,6 +154,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormAdmin";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.FormAdmin_Load);
             this.panel_Top.ResumeLayout(false);
             this.panel_Top.PerformLayout();
             this.panel_Left.ResumeLayout(false);

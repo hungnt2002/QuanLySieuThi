@@ -16,13 +16,13 @@ namespace GUI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //FormLogin form = new FormLogin();
-            //form.Show();
-            //Application.Run();
+            FormLogin form = new FormLogin();
+            form.Show();
+            Application.Run();
 
             //Application.Run(new FormLogin());
             //Application.Run(new FormQLSanPham());
-            Application.Run(new FormBanHang("test"));
+            //Application.Run(new FormBanHang("test"));
             //Application.Run(new FormQLNhanVien());
             //Application.Run(new FormAdmin());
 

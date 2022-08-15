@@ -72,7 +72,7 @@ namespace GUI
 
         private void FormLogin_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         private void label5_Click(object sender, EventArgs e)

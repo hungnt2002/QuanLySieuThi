@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BLL;
+using OfficeOpenXml;
 
 namespace GUI
 {
@@ -18,6 +20,8 @@ namespace GUI
         DataTable dt;
 
         int tongTienOrder = 0;
+        int tienTraLai = 0;
+        int tienKhachDua = 0;
         ProductBLL productBLL = new ProductBLL();
         public FormBanHang(string tenNV)
         {
@@ -35,12 +39,13 @@ namespace GUI
             }
             if (int.Parse(textBox2.Text) < tongTienOrder)
             {
-                MessageBox.Show("Tiền khách đưa không đủ!!!","Thông báo");
+                MessageBox.Show("Tiền khách đưa không đủ!!!", "Thông báo");
                 return;
             }
-            int tienTralai = int.Parse(textBox2.Text) - tongTienOrder;
-            textBox1.Text = tienTralai.ToString();
-            
+            tienKhachDua = int.Parse(textBox2.Text);
+            tienTraLai = tienKhachDua - tongTienOrder;
+            textBox1.Text = tienTraLai.ToString();
+
 
         }
 
@@ -49,12 +54,12 @@ namespace GUI
             this.Close();
             FormLogin formLogin = new FormLogin();
             formLogin.Show();
-            
+
         }
 
         private void label1_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void FormBanHang_Load(object sender, EventArgs e)
@@ -92,7 +97,7 @@ namespace GUI
 
         private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
         {
- 
+
             textBox4.Text = dataGridView2.SelectedCells[1].Value.ToString();
             textBox5.Text = dataGridView2.SelectedCells[3].Value.ToString();
             textBox6.Text = "1";
@@ -100,12 +105,12 @@ namespace GUI
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(comboBox1.Text == "Tất cả")
+            if (comboBox1.Text == "Tất cả")
             {
                 FormBanHang_Load(sender, e);
                 return;
             }
-            
+
             dataGridView2.DataSource = productBLL.selectLoai(comboBox1.Text);
         }
         int idSP = 0;
@@ -115,21 +120,21 @@ namespace GUI
             int tongSL;
             int tongTien;
 
-            if(textBox4.Text == ""||textBox5.Text == "")
+            if (textBox4.Text == "" || textBox5.Text == "")
             {
                 return;
             }
             foreach (DataRow dataRow in dt.Rows)
             {
-                
+
                 if (textBox4.Text == dataRow[1].ToString())
                 {
                     tongSL = int.Parse(textBox6.Text) + int.Parse(dataRow[3].ToString());
                     dataRow[3] = tongSL.ToString();
                     tongTien = int.Parse(dataRow[2].ToString()) * int.Parse(dataRow[3].ToString());
                     dataRow[4] = tongTien.ToString();
-                    tongTienOrder =      productBLL.tinhTienOder(dt);
-                    
+                    tongTienOrder = productBLL.tinhTienOder(dt);
+
                     label11.Text = tongTienOrder.ToString();
                     return;
                 }
@@ -144,7 +149,7 @@ namespace GUI
             row[3] = textBox6.Text;
 
             tongTien = int.Parse(row[2].ToString()) * int.Parse(row[3].ToString());
-            
+
             row[4] = tongTien.ToString();
 
             dt.Rows.Add(row);
@@ -157,7 +162,7 @@ namespace GUI
         private void tinhTienOder()
         {
             tongTienOrder = 0;
-           
+
             foreach (DataRow dataRow in dt.Rows)
             {
                 tongTienOrder += int.Parse(dataRow[4].ToString());
@@ -222,8 +227,18 @@ namespace GUI
 
         private void button3_Click(object sender, EventArgs e)
         {
-            productBLL.ExportFile(dt,"sheett1","Hóa đơn mua hàng");
-        }
-    }
+            StaffBLL staffBLL = new StaffBLL();
+            DataTable dtTen = staffBLL.selectTenNV(label1.Text);
+            tenNV = dtTen.Rows[0][0].ToString();
+            if (dataGridView1.Rows.Count < 2)
+            {
+                MessageBox.Show("Hóa đơn phải có ít nhất 1 sản phẩm");
+                return;
+            }
 
+            ExportBill.ExportFile(dt, tenNV, tongTienOrder, tienKhachDua, tienTraLai);
+
+        }
+
+    }
 }

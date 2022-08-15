@@ -33,6 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CustomControls">
+      <HintPath>C:\Users\ASUS\Desktop\CustomControls.dll</HintPath>
+    </Reference>
     <Reference Include="EPPlus, Version=5.8.2.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
       <HintPath>..\packages\EPPlus.5.8.2\lib\net45\EPPlus.dll</HintPath>
     </Reference>
@@ -70,12 +73,6 @@
     <Compile Include="FormAdmin.Designer.cs">
       <DependentUpon>FormAdmin.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormHoaDon.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormHoaDon.Designer.cs">
-      <DependentUpon>FormHoaDon.cs</DependentUpon>
-    </Compile>
     <Compile Include="FormQLNhanVien.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -107,9 +104,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormBanHang.resx">
       <DependentUpon>FormBanHang.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormHoaDon.resx">
-      <DependentUpon>FormHoaDon.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
@@ -159,6 +153,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\iconred1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\86f027443838fd66a429.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\6324e885aaf96fa736e8.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\background.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -76,5 +76,14 @@ namespace BLL
             return dataTable;
 
         }
+
+        public DataTable selectTenNV(string username)
+        {
+            QuerySelect querySelect = new QuerySelect();
+            string query = "SELECT tenNhanVien FROM tblStaff WHERE username = '" + username + "'";
+            DataTable dataTable = querySelect.Select(query);
+            return dataTable;
+
+        }
     }
 }

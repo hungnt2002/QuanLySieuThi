@@ -63,6 +63,36 @@ namespace GUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _6324e885aaf96fa736e8 {
+            get {
+                object obj = ResourceManager.GetObject("6324e885aaf96fa736e8", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _86f027443838fd66a429 {
+            get {
+                object obj = ResourceManager.GetObject("86f027443838fd66a429", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap background {
+            get {
+                object obj = ResourceManager.GetObject("background", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap iconred {
             get {
                 object obj = ResourceManager.GetObject("iconred", resourceCulture);
@@ -76,6 +106,26 @@ namespace GUI.Properties {
         internal static System.Drawing.Bitmap iconred1 {
             get {
                 object obj = ResourceManager.GetObject("iconred1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pngfind_com_spy_glass_png_3464443 {
+            get {
+                object obj = ResourceManager.GetObject("pngfind.com-spy-glass-png-3464443", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap wallpaperflare_com_wallpaper {
+            get {
+                object obj = ResourceManager.GetObject("wallpaperflare.com_wallpaper", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
