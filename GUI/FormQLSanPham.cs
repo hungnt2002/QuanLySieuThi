@@ -81,25 +81,7 @@ namespace GUI
 
         private void textBox7_TextChanged(object sender, EventArgs e)
         {
-            string name = txtBoxTimKiem.Text;
-            ProductBLL productBLL = new ProductBLL();
-
-            if (name == "")
-            {
-                if (cbDanhMuc.Text == "Tất cả")
-                {
-                    dataGridView1.DataSource = productBLL.loadAll();
-
-                }
-                else
-                {
-                    dataGridView1.DataSource = productBLL.selectLoai(cbDanhMuc.Text);
-                }
-            }
-            else
-            {
-                dataGridView1.DataSource = productBLL.selectTenSanPhamTheoLoai(name, cbDanhMuc.Text);
-            }
+            
 
         }
 
@@ -276,6 +258,29 @@ namespace GUI
             dt = (DataTable)dataGridView1.DataSource;
 
             ExcelProduct.ExportFile(dt);
+        }
+
+        private void txtBoxTimKiem_TextChanged(object sender, EventArgs e)
+        {
+            string name = txtBoxTimKiem.Text;
+            ProductBLL productBLL = new ProductBLL();
+
+            if (name == "")
+            {
+                if (cbDanhMuc.Text == "Tất cả")
+                {
+                    dataGridView1.DataSource = productBLL.loadAll();
+
+                }
+                else
+                {
+                    dataGridView1.DataSource = productBLL.selectLoai(cbDanhMuc.Text);
+                }
+            }
+            else
+            {
+                dataGridView1.DataSource = productBLL.selectTenSanPhamTheoLoai(name, cbDanhMuc.Text);
+            }
         }
     }
 }

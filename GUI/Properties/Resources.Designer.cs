@@ -63,6 +63,36 @@ namespace GUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _1__13_ {
+            get {
+                object obj = ResourceManager.GetObject("1 (13)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _1__6_ {
+            get {
+                object obj = ResourceManager.GetObject("1 (6)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _14_Delete_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("14_Delete_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _6324e885aaf96fa736e8 {
             get {
                 object obj = ResourceManager.GetObject("6324e885aaf96fa736e8", resourceCulture);
@@ -113,9 +143,49 @@ namespace GUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Knob_Add_icon {
+            get {
+                object obj = ResourceManager.GetObject("Knob-Add-icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap pngfind_com_spy_glass_png_3464443 {
             get {
                 object obj = ResourceManager.GetObject("pngfind.com-spy-glass-png-3464443", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap tải_xuống__3_ {
+            get {
+                object obj = ResourceManager.GetObject("tải xuống (3)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap tải_xuống__3_1 {
+            get {
+                object obj = ResourceManager.GetObject("tải xuống (3)1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap tải_xuống__3_2 {
+            get {
+                object obj = ResourceManager.GetObject("tải xuống (3)2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

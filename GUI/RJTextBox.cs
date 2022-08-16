@@ -100,7 +100,7 @@ namespace GUI
             {
                 textBox1.UseSystemPasswordChar = value;
             }
-        } 
+        }
         public bool Multiline
         {
             get
@@ -148,21 +148,32 @@ namespace GUI
             {
                 base.Font = value;
                 textBox1.Font = value;
-                if(this.DesignMode)
+                if (this.DesignMode)
                     UpdateControlHeight();
             }
         }
-        public  string Texts
+        public override string Text
         {
-            get
-            {
-                return textBox1.Text;
-            }
+            get { return textBox1.Text; }
             set
             {
                 textBox1.Text = value;
             }
         }
+             
+        
+        public bool ReadOnly
+        {
+            get
+            {
+                return textBox1.ReadOnly;
+            }
+            set
+            {
+                textBox1.ReadOnly=value;
+            }
+        }
+        
 
         public Color BorderFocusColor { get => borderFocusColor; set => borderFocusColor = value; }
 

@@ -12,6 +12,7 @@ namespace GUI
 {
     public partial class FormAdmin : Form
     {
+        bool isExit = true;
         public FormAdmin()
         {
             InitializeComponent();
@@ -60,9 +61,25 @@ namespace GUI
 
         private void btnDangXuat_Click(object sender, EventArgs e)
         {
+            isExit = false;
             this.Close();
             FormLogin formLogin = new FormLogin();
             formLogin.Show();
+        }
+
+        private void FormAdmin_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (isExit == true)
+            {
+                if (MessageBox.Show("Bạn có muốn thoát không ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    Application.Exit();
+                }
+                else
+                {
+                    e.Cancel = true;
+                }
+            }
         }
     }
 }

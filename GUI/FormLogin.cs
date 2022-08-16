@@ -22,7 +22,7 @@ namespace GUI
 
         public bool checkInput()
         {
-            if (txtBoxTaiKhoan.Texts == "")
+            if (txtBoxTaiKhoan.Text == "")
             {
                 MessageBox.Show("Bạn chưa nhập tài khoản");
                 return false;
@@ -39,7 +39,16 @@ namespace GUI
         private void FormLogin_FormClosing(object sender, FormClosingEventArgs e)
         {
             if(isExit == true)
-                Application.Exit();
+            {
+                if (MessageBox.Show("Bạn có muốn thoát không ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    Application.Exit();
+                }
+                else
+                {
+                    e.Cancel = true;
+                } 
+            }
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -50,7 +59,7 @@ namespace GUI
             }
 
             LoginBLL login = new LoginBLL();
-            string checkUser = login.checkAccount(txtBoxTaiKhoan.Texts, TxtBoxMatKhau.Text);
+            string checkUser = login.checkAccount(txtBoxTaiKhoan.Text, TxtBoxMatKhau.Text);
             if (checkUser == "Admin")
             {
 
@@ -64,9 +73,9 @@ namespace GUI
             }
             else if (checkUser == "User")
             {
-                MessageBox.Show("Đăng nhập tài khoản " + txtBoxTaiKhoan.Texts + " thành công", "Thông báo", MessageBoxButtons.OK);
+                MessageBox.Show("Đăng nhập tài khoản " + txtBoxTaiKhoan.Text + " thành công", "Thông báo", MessageBoxButtons.OK);
                 this.Hide();
-                FormBanHang formBanHang = new FormBanHang(txtBoxTaiKhoan.Texts);
+                FormBanHang formBanHang = new FormBanHang(txtBoxTaiKhoan.Text);
                 formBanHang.Show();
                 isExit = false;
                 this.Close();
@@ -80,7 +89,7 @@ namespace GUI
 
         private void lblHoanTac_Click(object sender, EventArgs e)
         {
-            txtBoxTaiKhoan.Texts = "";
+            txtBoxTaiKhoan.Text = "";
             TxtBoxMatKhau.Text = "";
             txtBoxTaiKhoan.Focus();
         }

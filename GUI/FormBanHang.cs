@@ -15,6 +15,7 @@ namespace GUI
 {
     public partial class FormBanHang : Form
     {
+        bool isExit = true;
         String tenNV;
 
         DataTable dt;
@@ -146,26 +147,7 @@ namespace GUI
 
         private void textBox7_TextChanged(object sender, EventArgs e)
         {
-            string name = txtBoxTimKiem.Text;
-
-            if (name == "")
-            {
-                if (cBoxTimKiem.Text == "Tất cả")
-                {
-                    ProductBLL productBLL = new ProductBLL();
-                    dataGridView2.DataSource = productBLL.loadAll();
-
-                }
-                else
-                {
-                    dataGridView2.DataSource = productBLL.selectLoai(cBoxTimKiem.Text);
-                }
-            }
-            else
-            {
-                ProductBLL productBLL = new ProductBLL();
-                dataGridView2.DataSource = productBLL.selectTenSanPhamTheoLoai(name, cBoxTimKiem.Text);
-            }
+            
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -264,6 +246,7 @@ namespace GUI
 
         private void btnDangXuat_Click(object sender, EventArgs e)
         {
+            isExit = false;
             this.Close();
             FormLogin formLogin = new FormLogin();
             formLogin.Show();
@@ -284,6 +267,50 @@ namespace GUI
                     dataGridView1.Rows.RemoveAt(i);
                 }
 
+            }
+        }
+
+        private void txtBoxTimKiem_TextChanged(object sender, EventArgs e)
+        {
+            string name = txtBoxTimKiem.Text;
+
+            if (name == "")
+            {
+                if (cBoxTimKiem.Text == "Tất cả")
+                {
+                    ProductBLL productBLL = new ProductBLL();
+                    dataGridView2.DataSource = productBLL.loadAll();
+
+                }
+                else
+                {
+                    dataGridView2.DataSource = productBLL.selectLoai(cBoxTimKiem.Text);
+                }
+            }
+            else
+            {
+                ProductBLL productBLL = new ProductBLL();
+                dataGridView2.DataSource = productBLL.selectTenSanPhamTheoLoai(name, cBoxTimKiem.Text);
+            }
+        }
+
+        private void cBoxTimKiem_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FormBanHang_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (isExit == true)
+            {
+                if (MessageBox.Show("Bạn có muốn thoát không ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    Application.Exit();
+                }
+                else
+                {
+                    e.Cancel = true;
+                }
             }
         }
     }

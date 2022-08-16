@@ -30,12 +30,12 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormLogin));
             this.lblHoanTac = new System.Windows.Forms.Label();
-            this.TxtBoxMatKhau = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnLogin = new CustomControls.RJControls.RJButton();
+            this.TxtBoxMatKhau = new GUI.RJTextBox();
             this.txtBoxTaiKhoan = new GUI.RJTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -43,27 +43,22 @@
             // lblHoanTac
             // 
             this.lblHoanTac.AutoSize = true;
+            this.lblHoanTac.BackColor = System.Drawing.Color.Transparent;
             this.lblHoanTac.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.lblHoanTac.Location = new System.Drawing.Point(445, 420);
+            this.lblHoanTac.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.lblHoanTac.Location = new System.Drawing.Point(462, 451);
             this.lblHoanTac.Name = "lblHoanTac";
             this.lblHoanTac.Size = new System.Drawing.Size(115, 29);
             this.lblHoanTac.TabIndex = 18;
             this.lblHoanTac.Text = "Hoàn tác";
             this.lblHoanTac.Click += new System.EventHandler(this.lblHoanTac_Click);
             // 
-            // TxtBoxMatKhau
-            // 
-            this.TxtBoxMatKhau.Location = new System.Drawing.Point(444, 253);
-            this.TxtBoxMatKhau.Multiline = true;
-            this.TxtBoxMatKhau.Name = "TxtBoxMatKhau";
-            this.TxtBoxMatKhau.PasswordChar = '*';
-            this.TxtBoxMatKhau.Size = new System.Drawing.Size(309, 33);
-            this.TxtBoxMatKhau.TabIndex = 17;
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.label4.Location = new System.Drawing.Point(288, 256);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(117, 29);
@@ -73,7 +68,9 @@
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.label3.Location = new System.Drawing.Point(288, 192);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(128, 29);
@@ -83,10 +80,12 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label1.Location = new System.Drawing.Point(445, 49);
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.label1.Location = new System.Drawing.Point(438, 49);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(172, 29);
+            this.label1.Size = new System.Drawing.Size(203, 32);
             this.label1.TabIndex = 12;
             this.label1.Text = "Siêu thị GS25";
             // 
@@ -116,7 +115,7 @@
             this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btnLogin.ForeColor = System.Drawing.Color.White;
-            this.btnLogin.Location = new System.Drawing.Point(450, 319);
+            this.btnLogin.Location = new System.Drawing.Point(450, 330);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(144, 54);
             this.btnLogin.TabIndex = 19;
@@ -125,12 +124,30 @@
             this.btnLogin.UseVisualStyleBackColor = false;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
+            // TxtBoxMatKhau
+            // 
+            this.TxtBoxMatKhau.BackColor = System.Drawing.SystemColors.Window;
+            this.TxtBoxMatKhau.BoderCoder = System.Drawing.Color.MediumSlateBlue;
+            this.TxtBoxMatKhau.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.TxtBoxMatKhau.BorDerSize = 6;
+            this.TxtBoxMatKhau.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.TxtBoxMatKhau.ForeColor = System.Drawing.Color.DimGray;
+            this.TxtBoxMatKhau.Location = new System.Drawing.Point(444, 250);
+            this.TxtBoxMatKhau.Multiline = false;
+            this.TxtBoxMatKhau.Name = "TxtBoxMatKhau";
+            this.TxtBoxMatKhau.Padding = new System.Windows.Forms.Padding(7);
+            this.TxtBoxMatKhau.PasswordChar = true;
+            this.TxtBoxMatKhau.ReadOnly = false;
+            this.TxtBoxMatKhau.Size = new System.Drawing.Size(309, 35);
+            this.TxtBoxMatKhau.TabIndex = 84;
+            this.TxtBoxMatKhau.UnderlineStyle = true;
+            // 
             // txtBoxTaiKhoan
             // 
             this.txtBoxTaiKhoan.BackColor = System.Drawing.SystemColors.Window;
             this.txtBoxTaiKhoan.BoderCoder = System.Drawing.Color.MediumSlateBlue;
             this.txtBoxTaiKhoan.BorderFocusColor = System.Drawing.Color.HotPink;
-            this.txtBoxTaiKhoan.BorDerSize = 2;
+            this.txtBoxTaiKhoan.BorDerSize = 6;
             this.txtBoxTaiKhoan.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.txtBoxTaiKhoan.ForeColor = System.Drawing.Color.DimGray;
             this.txtBoxTaiKhoan.Location = new System.Drawing.Point(444, 186);
@@ -138,21 +155,22 @@
             this.txtBoxTaiKhoan.Name = "txtBoxTaiKhoan";
             this.txtBoxTaiKhoan.Padding = new System.Windows.Forms.Padding(7);
             this.txtBoxTaiKhoan.PasswordChar = false;
+            this.txtBoxTaiKhoan.ReadOnly = false;
             this.txtBoxTaiKhoan.Size = new System.Drawing.Size(309, 35);
             this.txtBoxTaiKhoan.TabIndex = 83;
-            this.txtBoxTaiKhoan.Texts = "";
-            this.txtBoxTaiKhoan.UnderlineStyle = false;
+            this.txtBoxTaiKhoan.UnderlineStyle = true;
             // 
             // FormLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::GUI.Properties.Resources._6324e885aaf96fa736e8;
             this.ClientSize = new System.Drawing.Size(925, 548);
+            this.Controls.Add(this.TxtBoxMatKhau);
             this.Controls.Add(this.txtBoxTaiKhoan);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.lblHoanTac);
-            this.Controls.Add(this.TxtBoxMatKhau);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
@@ -169,13 +187,13 @@
 
         #endregion
         private System.Windows.Forms.Label lblHoanTac;
-        private System.Windows.Forms.TextBox TxtBoxMatKhau;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
         private CustomControls.RJControls.RJButton btnLogin;
         private System.Windows.Forms.PictureBox pictureBox1;
         private RJTextBox txtBoxTaiKhoan;
+        private RJTextBox TxtBoxMatKhau;
     }
 }
 
