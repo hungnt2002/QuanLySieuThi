@@ -46,28 +46,23 @@ namespace GUI
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnFormSP_Click(object sender, EventArgs e)
         {
             openChildForm(new FormQLSanPham());
-            label1.Text = button1.Text;
+            label1.Text = btnFormSP.Text;
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void btnFormNV_Click(object sender, EventArgs e)
         {
             openChildForm(new FormQLNhanVien());
-            label1.Text = button2.Text;
+            label1.Text = btnFormNV.Text;
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void btnDangXuat_Click(object sender, EventArgs e)
         {
             this.Close();
             FormLogin formLogin = new FormLogin();
             formLogin.Show();
-        }
-
-        private void FormAdmin_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

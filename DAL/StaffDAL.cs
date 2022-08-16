@@ -21,11 +21,12 @@ namespace DAL
             {
                 conn.Open();
                 cmd = new SqlCommand(query, conn);
-                cmd.Parameters.Add("@id", SqlDbType.NVarChar).Value = staff.Id;
+                cmd.Parameters.Add("@id", SqlDbType.Int).Value = staff.Id;
                 cmd.Parameters.Add("@tenNhanVien", SqlDbType.NVarChar).Value = staff.TenNhanVien;
-                cmd.Parameters.Add("@tuoi", SqlDbType.NVarChar).Value = staff.Tuoi;
+                cmd.Parameters.Add("@tuoi", SqlDbType.Int).Value = staff.Tuoi;
                 cmd.Parameters.Add("@SDT", SqlDbType.NVarChar).Value = staff.Sodt;
-                
+                cmd.Parameters.Add("@username", SqlDbType.NVarChar).Value = staff.Username;
+
 
                 int result = cmd.ExecuteNonQuery();
 

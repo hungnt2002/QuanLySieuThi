@@ -43,8 +43,5 @@ namespace DAL
             return true;
         }
 
-        
-
-
     }
 }

@@ -6,24 +6,27 @@ using System.Threading.Tasks;
 using DAL;
 using System.Data;
 using DTO;
-using BLL;
 
 namespace BLL
 {
     public class StaffBLL
     {
-        public bool insert(string id, string tenNhanVien, string tuoi, string sodt, string username, string password)
+        public bool insert(string tenNhanVien, string tuoi, string sodt, string username, string password)
         {
 
             RegisterBLL registerBLL = new RegisterBLL();
-            if (!registerBLL.regiterAccount(username, password))
+            if (!registerBLL.checkAccount(username, password))
             {
                 return false;
             }
-            Staff staff = new Staff(id, tenNhanVien, tuoi, sodt);
-            string query = "INSERT INTO tblStaff VALUES(@tenNhanVien, @tuoi, @SDT)";
+            Staff staff = new Staff("1", tenNhanVien, tuoi, sodt, username);
+            string query = "INSERT INTO tblStaff VALUES(@tenNhanVien, @tuoi, @SDT, @username)";
             StaffDAL staffDAL = new StaffDAL();
-            staffDAL.Command(staff, query);
+            if(!staffDAL.Command(staff, query))
+            {
+                registerBLL.deleteAccount(username);
+                return false;
+            }
 
 
             return true;
@@ -31,7 +34,7 @@ namespace BLL
 
         public bool update(string id, string tenNhanVien, string tuoi, string sodt, string username, string password)
         {
-            Staff staff = new Staff(id, tenNhanVien, tuoi, sodt);
+            Staff staff = new Staff(id, tenNhanVien, tuoi, sodt, username);
             string query = "UPDATE tblStaff" +
                 " SET tenNhanVien = @tenNhanVien, tuoi = @tuoi, SDT = @SDT" +
                 " WHERE id = @id";
@@ -55,7 +58,7 @@ namespace BLL
             if(!accountDAL.Command(account, query))
             {
                 return false;
-            };
+            }
 
             return true;
         }
@@ -83,7 +86,6 @@ namespace BLL
             string query = "SELECT tenNhanVien FROM tblStaff WHERE username = '" + username + "'";
             DataTable dataTable = querySelect.Select(query);
             return dataTable;
-
         }
     }
 }

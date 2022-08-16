@@ -19,7 +19,6 @@ namespace DAL
         {
             conn = Connection.getConnection();
 
-
             conn.Open();
             DataTable dt = new DataTable();
 

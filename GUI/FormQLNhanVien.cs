@@ -26,13 +26,30 @@ namespace GUI
         }
 
 
-        private void button5_Click(object sender, EventArgs e)
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txtBoxID.Text = dataGridView1.SelectedCells[0].Value.ToString();
+            txtBoxTenNV.Text = dataGridView1.SelectedCells[1].Value.ToString();
+            txtBoxTuoi.Text = dataGridView1.SelectedCells[2].Value.ToString();
+            txtBoxSDT.Text = dataGridView1.SelectedCells[3].Value.ToString();
+            txtBoxTaiKhoan.Text = dataGridView1.SelectedCells[4].Value.ToString();
+            txtBoxMatKhau.Text = dataGridView1.SelectedCells[5].Value.ToString();
+        }
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FormQLSanPham formQLSanPham = new FormQLSanPham();
+            formQLSanPham.ShowDialog();
+            this.Close();
+        }
+
+        private void btnThem_Click(object sender, EventArgs e)
         {
             bool check;
-            StaffBLL staffBLL = new StaffBLL();
             try
             {
-                check = staffBLL.insert(textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text, textBox5.Text, textBox6.Text);
+                StaffBLL staffBLL = new StaffBLL();
+                check = staffBLL.insert(txtBoxTenNV.Text, txtBoxTuoi.Text, txtBoxSDT.Text, txtBoxTaiKhoan.Text, txtBoxMatKhau.Text);
             }
             catch (Exception ex)
             {
@@ -47,17 +64,17 @@ namespace GUI
             }
             else
             {
-                MessageBox.Show("Trùng tên sản phẩm!!!", "Thông báo");
+                MessageBox.Show("Trùng username!!!", "Thông báo");
             }
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void btnEdit_Click(object sender, EventArgs e)
         {
             bool check;
             StaffBLL staffBLL = new StaffBLL();
             try
             {
-                check = staffBLL.update(textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text, textBox5.Text, textBox6.Text);
+                check = staffBLL.update(txtBoxID.Text, txtBoxTenNV.Text, txtBoxTuoi.Text, txtBoxSDT.Text, txtBoxTaiKhoan.Text, txtBoxMatKhau.Text);
             }
             catch (Exception ex)
             {
@@ -72,18 +89,18 @@ namespace GUI
             }
             else
             {
-                MessageBox.Show("Không tìm thấy tên sản phẩm để sửa!!!", "Thông báo");
+                MessageBox.Show("Không tìm thấy username để sửa!!!", "Thông báo");
 
             }
         }
 
-        private void button6_Click(object sender, EventArgs e)
+        private void btnDelete_Click(object sender, EventArgs e)
         {
             bool check;
             StaffBLL staffBLL = new StaffBLL();
             try
             {
-                check = staffBLL.delete(textBox1.Text, textBox6.Text);
+                check = staffBLL.delete(txtBoxID.Text, txtBoxMatKhau.Text);
             }
             catch (Exception ex)
             {
@@ -101,23 +118,6 @@ namespace GUI
                 MessageBox.Show("Không tìm thấy tên đăng nhập để xóa!!!", "Thông báo");
 
             }
-        }
-
-        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            textBox1.Text = dataGridView1.SelectedCells[0].Value.ToString();
-            textBox2.Text = dataGridView1.SelectedCells[1].Value.ToString();
-            textBox3.Text = dataGridView1.SelectedCells[2].Value.ToString();
-            textBox4.Text = dataGridView1.SelectedCells[3].Value.ToString();
-            textBox5.Text = dataGridView1.SelectedCells[4].Value.ToString();
-            textBox6.Text = dataGridView1.SelectedCells[5].Value.ToString();
-        }
-        private void button1_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            FormQLSanPham formQLSanPham = new FormQLSanPham();
-            formQLSanPham.ShowDialog();
-            this.Close();
         }
     }
 }

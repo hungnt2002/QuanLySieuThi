@@ -22,19 +22,27 @@ namespace GUI
 
         public bool checkInput()
         {
-            if (txtBoxTaiKhoan.Text == "")
+            if (txtBoxTaiKhoan.Texts == "")
             {
                 MessageBox.Show("Bạn chưa nhập tài khoản");
                 return false;
             }
-            else if(TextBoxMatKhau.Text == "")
+            else if(TxtBoxMatKhau.Text == "")
             {
                 MessageBox.Show("Bạn chưa nhập mật khẩu");
                 return false;
             }
             return true;
         }
-        private void button2_Click(object sender, EventArgs e)
+
+
+        private void FormLogin_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if(isExit == true)
+                Application.Exit();
+        }
+
+        private void btnLogin_Click(object sender, EventArgs e)
         {
             if (!checkInput())
             {
@@ -42,10 +50,10 @@ namespace GUI
             }
 
             LoginBLL login = new LoginBLL();
-            string checkUser = login.checkAccount(txtBoxTaiKhoan.Text, TextBoxMatKhau.Text);
-            if(checkUser == "Admin")
+            string checkUser = login.checkAccount(txtBoxTaiKhoan.Texts, TxtBoxMatKhau.Text);
+            if (checkUser == "Admin")
             {
-                
+
                 MessageBox.Show("Đăng nhập tài khoản " + txtBoxTaiKhoan.Text + " thành công", "Thông báo", MessageBoxButtons.OK);
                 this.Hide();
                 FormAdmin formAdmin = new FormAdmin();
@@ -54,15 +62,15 @@ namespace GUI
                 this.Close();
 
             }
-            else if(checkUser == "User")
+            else if (checkUser == "User")
             {
-                MessageBox.Show("Đăng nhập tài khoản " + txtBoxTaiKhoan.Text + " thành công", "Thông báo", MessageBoxButtons.OK);
+                MessageBox.Show("Đăng nhập tài khoản " + txtBoxTaiKhoan.Texts + " thành công", "Thông báo", MessageBoxButtons.OK);
                 this.Hide();
-                FormBanHang formBanHang = new FormBanHang(txtBoxTaiKhoan.Text);
+                FormBanHang formBanHang = new FormBanHang(txtBoxTaiKhoan.Texts);
                 formBanHang.Show();
                 isExit = false;
                 this.Close();
-                
+
             }
             else
             {
@@ -70,27 +78,18 @@ namespace GUI
             }
         }
 
+        private void lblHoanTac_Click(object sender, EventArgs e)
+        {
+            txtBoxTaiKhoan.Texts = "";
+            TxtBoxMatKhau.Text = "";
+            txtBoxTaiKhoan.Focus();
+        }
+
         private void FormLogin_Load(object sender, EventArgs e)
         {
-
+            txtBoxTaiKhoan.Focus();
         }
 
-        private void label5_Click(object sender, EventArgs e)
-        {
-            txtBoxTaiKhoan.Clear();
-            TextBoxMatKhau.Clear();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-          
-            
-        }
-
-        private void FormLogin_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            if(isExit == true)
-                Application.Exit();
-        }
+       
     }
 }

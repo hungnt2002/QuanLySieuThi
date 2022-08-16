@@ -35,7 +35,6 @@ namespace BLL
             Account account = new Account(username, password, "User");
             accountDAL = new AccountDAL();
             string query = "insert into tblAccount values(@username, @password, @typeUser)";
-
             accountDAL.Command(account, query);
 
 
@@ -49,6 +48,19 @@ namespace BLL
             string query = "UPDATE tblAccount" +
                 " SET username = @username, password = @password" +
                 " WHERE username = @username";
+            accountDAL = new AccountDAL();
+            if (accountDAL.Command(account, query))
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        public bool deleteAccount(string username)
+        {
+            Account account = new Account(username, "", "User");
+            string query = "DELETE FROM tblAccount WHERE username = @username";
             accountDAL = new AccountDAL();
             if (accountDAL.Command(account, query))
             {

@@ -66,12 +66,12 @@ namespace GUI
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            textBox1.Text = dataGridView1.SelectedCells[0].Value.ToString();
-            textBox2.Text = dataGridView1.SelectedCells[1].Value.ToString();
-            textBox3.Text = dataGridView1.SelectedCells[2].Value.ToString();
-            textBox4.Text = dataGridView1.SelectedCells[3].Value.ToString();
-            comboBox2.Text = dataGridView1.SelectedCells[4].Value.ToString();
-            textBox5.Text = dataGridView1.SelectedCells[5].Value.ToString();
+            txtBoxID.Text = dataGridView1.SelectedCells[0].Value.ToString();
+            txtBoxTenSP.Text = dataGridView1.SelectedCells[1].Value.ToString();
+            txtBoxSoLuong.Text = dataGridView1.SelectedCells[2].Value.ToString();
+            txtBoxGia.Text = dataGridView1.SelectedCells[3].Value.ToString();
+            cbPhanLoai.Text = dataGridView1.SelectedCells[4].Value.ToString();
+            txtBoxNhaSanXuat.Text = dataGridView1.SelectedCells[5].Value.ToString();
         }
 
         private void button2_Click_1(object sender, EventArgs e)
@@ -79,13 +79,59 @@ namespace GUI
             
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        private void textBox7_TextChanged(object sender, EventArgs e)
+        {
+            string name = txtBoxTimKiem.Text;
+            ProductBLL productBLL = new ProductBLL();
+
+            if (name == "")
+            {
+                if (cbDanhMuc.Text == "Tất cả")
+                {
+                    dataGridView1.DataSource = productBLL.loadAll();
+
+                }
+                else
+                {
+                    dataGridView1.DataSource = productBLL.selectLoai(cbDanhMuc.Text);
+                }
+            }
+            else
+            {
+                dataGridView1.DataSource = productBLL.selectTenSanPhamTheoLoai(name, cbDanhMuc.Text);
+            }
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ProductBLL productBLL = new ProductBLL();
+            txtBoxTimKiem.Text = ""; 
+            if (cbDanhMuc.Text == "Tất cả")
+            {
+                dataGridView1.DataSource = productBLL.loadAll();
+                return;
+            }
+            dataGridView1.DataSource = productBLL.selectLoai(cbDanhMuc.Text);
+        }
+
+        private void btnThem_Click(object sender, EventArgs e)
         {
             bool check;
             ProductBLL productBLL = new ProductBLL();
             try
             {
-                check = productBLL.insert(textBox2.Text, int.Parse(textBox3.Text), int.Parse(textBox4.Text), comboBox2.Text, textBox5.Text);
+                check = productBLL.insert(txtBoxTenSP.Text, int.Parse(txtBoxSoLuong.Text), int.Parse(txtBoxGia.Text), cbPhanLoai.Text, txtBoxNhaSanXuat.Text);
             }
             catch (Exception ex)
             {
@@ -102,16 +148,41 @@ namespace GUI
             {
                 MessageBox.Show("Trùng tên sản phẩm!!!", "Thông báo");
             }
-
         }
 
-        private void button6_Click(object sender, EventArgs e)
+        private void btnEdit_Click(object sender, EventArgs e)
         {
             bool check;
             ProductBLL productBLL = new ProductBLL();
             try
             {
-                check = productBLL.delete(textBox2.Text);
+                check = productBLL.update(txtBoxTenSP.Text, int.Parse(txtBoxSoLuong.Text), int.Parse(txtBoxGia.Text), cbPhanLoai.Text, txtBoxNhaSanXuat.Text);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi sửa: " + ex.Message, "Thông báo");
+                return;
+            }
+
+            if (check == true)
+            {
+                MessageBox.Show("Sửa thành công!!!", "Thông báo");
+                FormQLSanPham_Load(sender, e);
+            }
+            else
+            {
+                MessageBox.Show("Không tìm thấy tên sản phẩm để sửa!!!", "Thông báo");
+
+            }
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            bool check;
+            ProductBLL productBLL = new ProductBLL();
+            try
+            {
+                check = productBLL.delete(txtBoxTenSP.Text);
             }
             catch (Exception ex)
             {
@@ -131,103 +202,23 @@ namespace GUI
             }
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void btnClear_Click(object sender, EventArgs e)
         {
-
-            bool check;
-            ProductBLL productBLL = new ProductBLL();
-            try
-            {
-                check = productBLL.update(textBox2.Text, int.Parse(textBox3.Text), int.Parse(textBox4.Text), comboBox2.Text, textBox5.Text);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi sửa: " + ex.Message, "Thông báo");
-                return;
-            }
-
-            if (check == true)
-            {
-                MessageBox.Show("Sửa thành công!!!", "Thông báo");
-                FormQLSanPham_Load(sender, e);
-            }
-            else
-            {
-                MessageBox.Show("Không tìm thấy tên sản phẩm để sửa!!!", "Thông báo");
-
-            }
-
-
+            txtBoxID.Text = "";
+            txtBoxTenSP.Text = "";
+            txtBoxSoLuong.Text = "";
+            txtBoxGia.Text = "";
+            cbPhanLoai.Text = "";
+            txtBoxNhaSanXuat.Text = "";
         }
 
-        private void textBox7_TextChanged(object sender, EventArgs e)
+        private void btnReset_Click(object sender, EventArgs e)
         {
-            string name = textBox7.Text;
-
-            if (name == "")
-            {
-                FormQLSanPham_Load(sender, e);
-            }
-            else
-            {
-                ProductBLL productBLL = new ProductBLL();
-                dataGridView1.DataSource = productBLL.selectTenSanPhamTheoLoai(name, comboBox1.Text);
-            }
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-            if (comboBox1.Text == "Tất cả")
-            {
-                FormQLSanPham_Load(sender, e);
-                return;
-            }
-            ProductBLL productBLL = new ProductBLL();
-            dataGridView1.DataSource = productBLL.selectLoai(comboBox1.Text);
-        }
-
-        private void button8_Click(object sender, EventArgs e)
-        {
-            comboBox1.Text = "Tất cả";
+            cbDanhMuc.Text = "Tất cả";
             FormQLSanPham_Load(sender, e);
         }
 
-        private void button7_Click(object sender, EventArgs e)
-        {
-            textBox1.Text = "";
-            textBox2.Text = "";
-            textBox3.Text = "";
-            textBox4.Text = "";
-            comboBox2.Text = "";
-            textBox5.Text = "";
-        }
-
-        private void button2_Click_2(object sender, EventArgs e)
-        {
-            if (dataGridView1.Rows.Count < 2)
-            {
-                MessageBox.Show("Phải có ít nhất 1 sản phẩm");
-                return;
-            }
-            FormQLSanPham_Load(sender, e);
-            dt = new DataTable();
-            dt = (DataTable)dataGridView1.DataSource;
-
-            ExcelProduct.ExportFile(dt);
-        }
-
-        private void button1_Click(object sender, EventArgs e)
+        private void btnImport_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Title = "Import Excel";
@@ -246,8 +237,6 @@ namespace GUI
                     MessageBox.Show("Nhập file thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
-
-
         }
         private void ImportExcel(string path)
         {
@@ -273,6 +262,20 @@ namespace GUI
                 }
                 dataGridView1.DataSource = dataTable;
             }
+        }
+
+        private void btnExport_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.Rows.Count < 2)
+            {
+                MessageBox.Show("Phải có ít nhất 1 sản phẩm");
+                return;
+            }
+            FormQLSanPham_Load(sender, e);
+            dt = new DataTable();
+            dt = (DataTable)dataGridView1.DataSource;
+
+            ExcelProduct.ExportFile(dt);
         }
     }
 }
